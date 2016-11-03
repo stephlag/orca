@@ -18,7 +18,7 @@ kato:
 echo:
   enabled: ${IGOR_ENABLED:false}
 igor:
-  baseUrl: http://${FRONT50_HOST:localhost}:${FRONT50_PORT:8088}
+  baseUrl: http://${IGOR_HOST:localhost}:${IGOR_PORT:8088}
 bakery:
   baseUrl: http://${BAKERY_HOST:localhost}:${BAKERY_PORT:8089}
   # Rosco exposes more endpoints than Netflix's internal bakery. This disables
