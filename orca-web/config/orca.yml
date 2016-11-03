@@ -6,7 +6,7 @@ default:
     account: default
 
 front50:
-  baseUrl: http://${FRONT50_HOST}:8080
+  baseUrl: http://${FRONT50_HOST:localhost}:${FRONT50_PORT:8080}
 tide:
   baseUrl: http://localhost:8090
 oort:
@@ -18,7 +18,7 @@ kato:
 echo:
   enabled: false
 igor:
-  baseUrl: http://${IGOR_HOST}:8088
+  baseUrl: http://${IGOR_HOST}:${IGOR_PORT:8088}
 bakery:
   baseUrl: http://localhost:8089
   # Rosco exposes more endpoints than Netflix's internal bakery. This disables
