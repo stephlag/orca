@@ -1,5 +1,5 @@
 server:
-  port: 8083
+  port: ${ORCA_PORT:8083}
 
 default:
   bake:
@@ -8,26 +8,26 @@ default:
 front50:
   baseUrl: http://${FRONT50_HOST:localhost}:${FRONT50_PORT:8080}
 tide:
-  baseUrl: http://localhost:8090
+  baseUrl: http://${TIDE_HOST:localhost}:${TIDE_PORT:8090}
 oort:
-  baseUrl: http://localhost:7002
+  baseUrl: http://${OORT_HOST:localhost}:${OORT_PORT:7002}
 mort:
-  baseUrl: http://localhost:7002
+  baseUrl: http://${MORT_HOST:localhost}:${MORT_PORT:7002}
 kato:
-  baseUrl: http://localhost:7002
+  baseUrl: http://${KATO0_HOST:localhost}:${KATO0_PORT:7002}
 echo:
-  enabled: false
+  enabled: ${IGOR_ENABLED:false}
 igor:
-  baseUrl: http://${IGOR_HOST}:${IGOR_PORT:8088}
+  baseUrl: http://${IGOR_HOST:localhost}:${IGOR_PORT:8088}
 bakery:
-  baseUrl: http://localhost:8089
+  baseUrl: http://${BAKERY_HOST:localhost}:${BAKERY_PORT:8089}
   # Rosco exposes more endpoints than Netflix's internal bakery. This disables
   # the use of those endpoints.
   roscoApisEnabled: true
   allowMissingPackageInstallation: false
 
 redis:
-  connection: ${REDIS_URL:redis://localhost:6379}
+  connection: redis://${REDIS_HOST:localhost}:${REDIS_PORT:6379}
 
 tasks:
   useWaitForAllNetflixAWSInstancesDownTask: false
