@@ -8,4 +8,4 @@ WORKDIR workdir
 
 RUN dpkg -i ./packages/*.deb
 
-CMD ["/orca/gate/bin/orca"]
+CMD ["/opt/orca/bin/orca"]
