@@ -34,7 +34,7 @@ class MonitorQuipTask extends AbstractQuipTask implements RetryableTask {
   @Autowired Client retrofitClient
 
   long backoffPeriod = 10000
-  long timeout = 600000 // 10mins
+  long timeout = 1200000 // 20mins
 
   /**
    * TODO: make this more efficient by only polling the instances which are not done.
@@ -54,7 +54,7 @@ class MonitorQuipTask extends AbstractQuipTask implements RetryableTask {
     }
 
     stage.context?.instances.each {String key, Map valueMap ->
-      String hostName = valueMap.hostName
+      String hostName = valueMap.privateIpAddress ?: valueMap.hostName
       def taskId = stage.context.taskIds.get(hostName)
       def instanceService = createInstanceService("http://${hostName}:5050")
       try {
